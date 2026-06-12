@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================
+TITRE DE L'ONGLET
+👉 Remplace "Accueil en structure Public" et "Santam SARKAR" par tes infos
+============================================================ -->
+<title>Stage – Accueil en structure Public | Portfolio Santam SARKAR</title>
+
+<!-- Polices Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- On réutilise exactement le même fichier style.css -->
+<link rel="stylesheet" href="style.css" />
+
+<!-- Styles supplémentaires spécifiques à cette page de détail -->
+<style>
+
+/* ---- En-tête de la page de stage (grand bandeau bleu) ---- */
+.stage-hero {
+background: linear-gradient(145deg, #0F2238 0%, var(--clr-primary) 55%, #2A5298 100%);
+padding: calc(var(--navbar-h) + var(--space-3xl)) var(--space-xl) var(--space-3xl);
+text-align: center;
+position: relative;
+}
+
+.stage-hero__tag {
+display: inline-block;
+font-size: var(--text-xs);
+font-weight: 600;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--clr-accent);
+margin-bottom: var(--space-md);
+}
+
+.stage-hero__title {
+font-family: var(--font-display);
+font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
+color: var(--clr-white);
+margin-bottom: var(--space-sm);
+}
+
+.stage-hero__meta {
+color: rgba(255,255,255,0.7);
+font-size: var(--text-base);
+margin-bottom: var(--space-lg);
+}
+
+/* Ligne dorée decorative */
+.stage-hero__divider {
+width: 80px;
+height: 3px;
+background: linear-gradient(90deg, transparent, var(--clr-accent), transparent);
+margin: var(--space-md) auto;
+border-radius: 2px;
+}
+
+/* Bouton retour au portfolio (en haut à gauche sur desktop) */
+.back-btn {
+position: absolute;
+top: calc(var(--navbar-h) + var(--space-lg));
+left: var(--space-xl);
+display: inline-flex;
+align-items: center;
+gap: 0.4rem;
+font-size: var(--text-sm);
+color: rgba(255,255,255,0.75);
+transition: color var(--transition);
+}
+.back-btn:hover {
+color: var(--clr-white);
+}
+.back-btn::before {
+content: '←';
+font-size: 1.1em;
+}
+
+/* ---- Contenu principal (sous le bandeau) ---- */
+.stage-content {
+max-width: 900px;
+margin: 0 auto;
+padding: var(--space-3xl) var(--space-xl);
+}
+
+/* Bloc d'information résumé (dates, lieu…) */
+.stage-info-bar {
+display: flex;
+flex-wrap: wrap;
+gap: var(--space-md) var(--space-2xl);
+background: var(--clr-white);
+border: 1px solid var(--clr-border);
+border-radius: var(--radius-md);
+padding: var(--space-xl);
+margin-bottom: var(--space-2xl);
+box-shadow: var(--shadow-sm);
+}
+
+.stage-info-bar__item {
+display: flex;
+flex-direction: column;
+gap: 0.2rem;
+}
+
+.stage-info-bar__label {
+font-size: var(--text-xs);
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: var(--clr-accent);
+}
+
+.stage-info-bar__value {
+font-size: var(--text-base);
+font-weight: 500;
+color: var(--clr-dark);
+}
+
+/* ---- Blocs de contenu (résumé, missions, bilan…) ---- */
+.content-block {
+margin-bottom: var(--space-3xl);
+}
+
+.content-block__title {
+font-family: var(--font-display);
+font-size: var(--text-2xl);
+color: var(--clr-primary);
+margin-bottom: var(--space-lg);
+padding-bottom: var(--space-sm);
+border-bottom: 2px solid var(--clr-bg-alt);
+display: flex;
+align-items: center;
+gap: var(--space-sm);
+}
+
+.content-block p {
+font-size: var(--text-base);
+color: var(--clr-dark);
+line-height: 1.8;
+margin-bottom: var(--space-md);
+}
+
+/* Liste à puces stylisée */
+.styled-list {
+display: flex;
+flex-direction: column;
+gap: var(--space-sm);
+padding-left: 0;
+}
+
+.styled-list li {
+font-size: var(--text-base);
+color: var(--clr-dark);
+line-height: 1.6;
+padding-left: var(--space-lg);
+position: relative;
+}
+
+.styled-list li::before {
+content: '';
+position: absolute;
+left: 0;
+top: 0.6em;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: var(--clr-accent);
+}
+
+/* ---- Galerie d'images ---- */
+.gallery {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+gap: var(--space-md);
+margin-top: var(--space-lg);
+}
+
+.gallery__item {
+border-radius: var(--radius-sm);
+overflow: hidden;
+aspect-ratio: 4/3;
+background-color: var(--clr-bg-alt);
+position: relative;
+cursor: pointer;
+}
+
+.gallery__item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform var(--transition), filter var(--transition);
+}
+
+.gallery__item:hover img {
+transform: scale(1.06);
+filter: brightness(0.85);
+}
+
+/* Légende au survol de la photo */
+.gallery__item__caption {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: linear-gradient(transparent, rgba(30,58,95,0.85));
+color: white;
+font-size: var(--text-xs);
+padding: var(--space-xs) var(--space-sm);
+opacity: 0;
+transition: opacity var(--transition);
+}
+
+.gallery__item:hover .gallery__item__caption {
+opacity: 1;
+}
+
+/* ---- Section Documents / Annexes ---- */
+.documents-list {
+display: flex;
+flex-direction: column;
+gap: var(--space-md);
+}
+
+.document-item {
+display: flex;
+align-items: center;
+gap: var(--space-lg);
+background-color: var(--clr-white);
+border: 1px solid var(--clr-border);
+border-radius: var(--radius-md);
+padding: var(--space-lg) var(--space-xl);
+transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.document-item:hover {
+box-shadow: var(--shadow-md);
+border-color: var(--clr-primary);
+}
+
+/* Icône du document */
+.document-item__icon {
+font-size: 2rem;
+flex-shrink: 0;
+width: 50px;
+text-align: center;
+}
+
+.document-item__info {
+flex: 1;
+}
+
+.document-item__name {
+font-weight: 600;
+color: var(--clr-dark);
+font-size: var(--text-base);
+margin-bottom: 0.15rem;
+}
+
+.document-item__desc {
+font-size: var(--text-sm);
+color: var(--clr-text-muted);
+}
+
+/* ---- Bilan / compétences validées ---- */
+.competences-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: var(--space-md);
+margin-top: var(--space-lg);
+}
+
+.competence-card {
+background-color: var(--clr-white);
+border: 1px solid var(--clr-border);
+border-radius: var(--radius-md);
+padding: var(--space-lg);
+text-align: center;
+transition: box-shadow var(--transition);
+}
+
+.competence-card:hover {
+box-shadow: var(--shadow-md);
+}
+
+.competence-card__icon {
+font-size: 1.8rem;
+margin-bottom: var(--space-sm);
+display: block;
+}
+
+.competence-card__text {
+font-size: var(--text-sm);
+font-weight: 500;
+color: var(--clr-dark);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+.back-btn {
+position: static;
+display: inline-flex;
+margin-bottom: var(--space-md);
+}
+.stage-hero {
+text-align: left;
+}
+.stage-info-bar {
+flex-direction: column;
+gap: var(--space-md);
+}
+.gallery {
+grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+.document-item {
+flex-direction: column;
+align-items: flex-start;
+gap: var(--space-sm);
+}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+BARRE DE NAVIGATION (identique à l'accueil)
+============================================================ -->
+<header class="navbar is-scrolled" id="navbar">
+<div class="navbar__container">
+<!-- 👉 Remplace "Santam SARKAR" par ton nom -->
+<a href="index.html" class="navbar__logo">Santam SARKAR</a>
+
+<button class="navbar__toggle" id="navToggle" aria-label="Ouvrir le menu">
+<span></span><span></span><span></span>
+</button>
+
+<nav class="navbar__menu" id="navMenu">
+<a href="index.html#accueil" class="navbar__link">Accueil</a>
+<a href="index.html#cv" class="navbar__link">Mon CV</a>
+<!-- Le lien "Mes Stages" est actif sur cette page -->
+<a href="index.html#stages" class="navbar__link is-active">Mes Stages</a>
+<a href="index.html#projets" class="navbar__link">Mes Projets</a>
+</nav>
+</div>
+</header>
+
+
+<!-- ============================================================
+BANDEAU D'EN-TÊTE DU STAGE
+============================================================ -->
+<div class="stage-hero">
+
+<!-- Bouton retour -->
+<a href="index.html#stages" class="back-btn">Retour aux stages</a>
+
+<!-- 👉 Remplace par le type de structure -->
+<p class="stage-hero__tag">Accueil en Structure Public</p>
+
+<!-- 👉 Remplace par le nom du poste ou de ta mission -->
+<h1 class="stage-hero__title">Agent d'accueil</h1>
+
+<!-- 👉 Remplace par le nom de la structure et la ville -->
+<p class="stage-hero__meta">Conservatoire à Rayonnement Départemental · Le Blanc-Mesnil</p>
+
+<div class="stage-hero__divider"></div>
+
+<!-- 👉 Remplace par les dates du stage -->
+<p class="stage-hero__meta">Mai – Juin 2026 · 5 semaines</p>
+
+</div>
+
+
+<!-- ============================================================
+CONTENU PRINCIPAL DE LA PAGE
+============================================================ -->
+<main class="stage-content">
+
+<!-- ---- BLOC 1 : Fiche d'informations rapides ---- -->
+<!-- 👉 Complète chaque champ avec tes vraies informations -->
+<div class="stage-info-bar">
+
+<div class="stage-info-bar__item">
+<span class="stage-info-bar__label">Structure</span>
+<!-- 👉 Remplace -->
+<span class="stage-info-bar__value">Conservatoire à Rayonnement Départemental</span>
+</div>
+
+<div class="stage-info-bar__item">
+<span class="stage-info-bar__label">Secteur d'activité</span>
+<!-- 👉 Remplace (ex: Commerce, Services, Culture, Événementiel…) -->
+<span class="stage-info-bar__value">Culture</span>
+</div>
+
+<div class="stage-info-bar__item">
+<span class="stage-info-bar__label">Durée</span>
+<!-- 👉 Remplace -->
+<span class="stage-info-bar__value">5 semaines</span>
+</div>
+
+<div class="stage-info-bar__item">
+<span class="stage-info-bar__label">Lieu</span>
+<!-- 👉 Remplace -->
+<span class="stage-info-bar__value">Le Blanc-Mesnil 93150</span>
+</div>
+
+<div class="stage-info-bar__item">
+<span class="stage-info-bar__label">Tuteur de stage</span>
+<!-- 👉 Remplace (prénom + nom, ou "M. / Mme [Nom]") -->
+<span class="stage-info-bar__value">Mme Melodie VANDEPOEL</span>
+</div>
+
+</div>
+
+
+<!-- ---- BLOC 2 : Présentation de la structure ---- -->
+<div class="content-block">
+<h2 class="content-block__title">🏛️ Présentation de la structure</h2>
+
+<!-- 👉 Décris la structure où tu as effectué ton stage -->
+<!-- Réponds aux questions : Quoi ? Qui ? Taille ? Activités principales ? -->
+<p>
+Le Conservatoire à Rayonnement Départemental (CRD) du Blanc-Mesnil est un établissement public d'enseignement artistique labellisé par le Ministère de la Culture. Il compte plus de 620 élèves encadrés par une équipe de 56 professeurs qualifiés, proposant un enseignement riche à travers 34 disciplines.
+</p>
+<p>
+Pour assurer ses activités (345 heures d'enseignement par semaine et 45 spectacles par an), l'établissement est réparti sur deux sites distincts : l'Espace culturel Musique & Danse (avenue Paul-Vaillant-Couturier) et la Ferme Notre-Dame (avenue Descartes).
+</p>
+</div>
+
+
+<!-- ---- BLOC 3 : Missions réalisées ---- -->
+<div class="content-block">
+
+
+<div class="content-block">
+<h2 class="content-block__title">🎯 Missions confiées</h2>
+
+<p>
+Dès mon arrivée, j'ai intégré l'équipe d'accueil et j'ai eu l'opportunité de travailler sur deux sites aux environnements complémentaires :
+</p>
+
+<h3>📍 Au site principal du Conservatoire :</h3>
+<ul>
+    <li><strong>Accueil physique et téléphonique :</strong> Prise en charge des familles, renseignement des usagers et orientation des élèves vers leurs salles de cours.</li>
+    <li><strong>Gestion administrative :</strong> Mise à jour des tableaux de suivi et de données sur Excel.</li>
+    <li><strong>Campagne de réinscription :</strong> Contact téléphonique direct avec les parents d'élèves pour le suivi des dossiers.</li>
+</ul>
+
+<h3>📍 Au site de La Ferme Notre-Dame :</h3>
+<ul>
+    <li><strong>Autonomie en équipe réduite :</strong> Gestion du flux des élèves et accueil du public dans une structure de proximité.</li>
+    <li><strong>Sécurité et vie scolaire :</strong> Surveillance des locaux et application du règlement intérieur de l'établissement.</li>
+</ul>
+</div>
+
+
+<!-- ---- BLOC 4 : Compétences développées ---- -->
+<div class="content-block">
+<h2 class="content-block__title">🛠️ Ce que j'ai appris</h2>
+<p>
+Ce stage m'a vraiment permis de progresser sur le terrain et de voir ce que c'est que le métier d'accueillant au quotidien. Voici les points forts que j'ai développés :
+</p>
+<ul>
+    <li><strong>Le contact avec le public :</strong> J'ai appris à m'adapter à tout le monde, que ce soit pour renseigner une famille un peu perdue à l'accueil ou pour gérer un appel téléphonique au standard sans stresser.</li>
+    <li><strong>L'organisation sur le terrain :</strong> En tournant sur les deux sites, j'ai dû apprendre à être super autonome, surtout à La Ferme où l'équipe est réduite et où il faut savoir gérer le flux des élèves tout seul.</li>
+    <li><strong>Les outils professionnels :</strong> J'ai pu manipuler concrètement des tableaux Excel pour de la gestion administrative.</li>
+</ul>
+</div>
+
+<!-- 👉 Ajoute ou supprime des cartes selon tes compétences -->
+
+</div>
+</div>
+
+
+<!-- ---- BLOC 5 : Galerie de photos ---- -->
+<div class="content-block">
+<h2 class="content-block__title">📸 Galerie photos</h2>
+
+<p>
+Quelques photos de la structure et de mon environnement de travail.
+<!-- 👉 Adapte cette phrase si tu as des photos de tes missions -->
+</p>
+
+<!-- ============================================================
+GALERIE D'IMAGES
+👉 Pour chaque photo :
+1. Place ton fichier image dans un dossier "images/"
+2. Remplace "images/stage1-photo1.jpg" par le bon chemin
+3. Remplace "Légende de la photo" par une courte description
+4. Remplace le texte dans alt="..." pour l'accessibilité
+
+Si tu n'as pas de photos → supprime toute cette div.gallery
+============================================================ -->
+<div class="gallery">
+
+<div class="gallery__item">
+<img src="images/stage1-photo1.jpeg" alt="Hall d'accueil" loading="lazy">
+<span class="gallery__item_caption">Le hall principal et la galerie d'exposition culturelle</span>
+</div>
+
+<div class="gallery__item">
+<img src="images/stage1-photo2.jpeg" alt="Espace cafétéria" loading="lazy">
+<span class="gallery__item_caption">L'espace de convivialité décoré pour les usagers et artistes</span>
+</div>
+
+<div class="gallery__item">
+<img src="images/stage1-photo3.jpeg" alt="Instruments" loading="lazy">
+<span class="gallery__item_caption">Gestion et suivi du matériel d'enseignement artistique</span>
+</div>
+
+<div class="gallery__item">
+<img src="images/stage1-photo4.jpeg" alt="Couloir" loading="lazy">
+<span class="gallery__item_caption">Le comptoir d'information et l'affichage des brochures culturelles</span>
+</div>
+
+<div class="gallery__item">
+<img src="images/stage1-photo5.jpeg" alt="Couloir" loading="lazy">
+<span class="gallery__item_caption">Le comptoir d'information et l'affichage des brochures culturelles</span>
+</div>
+
+<div class="gallery__item">
+<img src="images/stage1-photo6.jpeg" alt="Couloir" loading="lazy">
+<span class="gallery__item_caption">Le comptoir d'information et l'affichage des brochures culturelles</span>
+</div>
+</div>
+<!-- 👉 Pour ajouter d'autres photos, copie-colle un bloc .gallery__item -->
+
+</div>
+</div>
+
+
+<!-- ---- BLOC 6 : Bilan personnel ---- -->
+<div class="content-block">
+
+
+<!-- 👉 Écris ici ton bilan personnel du stage (ce que tu as appris, ce qui t'a plu ou moins plu, ce que tu retiens…) -->
+<div class="content-block">
+<h2 class="content-block__title">💡 Mon bilan personnel</h2>
+<p>
+Ces 5 semaines au Conservatoire ont été une expérience très positive. C'était ma première immersion prolongée sur le terrain, ce qui change des cours théoriques et permet de voir la réalité du métier d'accueillant.
+</p>
+<p>
+Même si le contact direct avec le public ou la gestion des appels professionnels peuvent impressionner au début, j'ai rapidement pris mes marques grâce à la confiance de l'équipe. Ma mission sur le site de La Ferme m'a également prouvé que je savais faire preuve d'autonomie face aux demandes des usagers.
+</p>
+<p>
+Ce stage confirme mon choix d'orientation en Bac Pro et me donne une base solide ainsi que plus d'assurance pour mes futures périodes de stage.
+</p>
+</div>
+
+
+<!-- ---- BLOC 7 : Documents et Annexes ---- -->
+<div class="content-block">
+<h2 class="content-block__title">📎 Documents & Annexes</h2>
+
+<p>Retrouvez ci-dessous les documents produits ou collectés pendant ce stage.</p>
+
+<!-- ============================================================
+LISTE DES DOCUMENTS TÉLÉCHARGEABLES
+👉 Pour chaque document :
+1. Place ton fichier dans un dossier "documents/"
+2. Remplace le href par le bon chemin de ton fichier
+3. Remplace le nom et la description
+4. Choisis l'icône adaptée :
+📄 = PDF général
+📊 = Excel / tableau
+📝 = Word / rapport écrit
+🖼️ = Image / photo
+📋 = Formulaire / attestation
+
+Pour les fichiers Word et Excel : ajoute download pour permettre le téléchargement
+============================================================ -->
+<div class="documents-list">
+<div class="content-block">
+
+
+
+<div class="documents-list">
+
+<a href="documents/rapport-stage1.pdf" download class="document-item">
+<div class="document-item__icon">📄</div>
+<div class="document-item__info">
+<p class="document-item__name">Rapport de stage</p>
+<p class="document-item__desc">Mon rapport complet analysant ces 5 semaines passées au Conservatoire · Format PDF</p>
+</div>
+<span class="btn btn--card" style="flex-shrink:0;">Télécharger</span>
+</a>
+
+<a href="documents/plaquette-conservatoire.pdf" download class="document-item">
+<div class="document-item__icon">📋</div>
+<div class="document-item__info">
+<p class="document-item__name">Plaquette de présentation du Conservatoire</p>
+<p class="document-item__desc">Document d'information officiel présentant les différents sites et enseignements</p>
+</div>
+<span class="btn btn--card" style="flex-shrink:0;">Télécharger</span>
+</a>
+
+</div>
+
+<!-- Document 3 : Attestation de stage -->
+<a href="documents/attestation-stage1.pdf" download class="document-item">
+<div class="document-item__icon">📋</div>
+<div class="document-item__info">
+<p class="document-item__name">Attestation de stage</p>
+<p class="document-item__desc">Attestation signée par le tuteur de stage · Format PDF</p>
+</div>
+<span class="btn btn--card" style="flex-shrink:0;">Télécharger</span>
+</a>
+
+<!-- Document 4 : Exemple avec un fichier Word -->
+<a href="documents/compte-rendu.docx" download class="document-item">
+<div class="document-item__icon">📝</div>
+<div class="document-item__info">
+<!-- 👉 Adapte selon ton document -->
+<p class="document-item__name">[Nom du document Word]</p>
+<p class="document-item__desc">[Description du document] · Format Word</p>
+</div>
+<span class="btn btn--card" style="flex-shrink:0;">Télécharger</span>
+</a>
+
+<!-- 👉 Pour ajouter d'autres documents, copie-colle un bloc .document-item -->
+
+</div>
+</div>
+
+
+<!-- ---- Navigation entre stages ---- -->
+<!-- 👉 Ces boutons permettent de passer d'un stage à l'autre sans repasser par l'accueil -->
+<div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--space-md); margin-top:var(--space-3xl); padding-top:var(--space-2xl); border-top:1px solid var(--clr-border);">
+<!-- 👉 Si c'est le stage 1, mets un lien vide ou supprime ce bouton -->
+<a href="detail-stage1.html" class="btn btn--outline" style="color:var(--clr-primary); border-color:var(--clr-primary);">← Stage précédent</a>
+<a href="index.html#stages" class="btn btn--primary">Retour aux stages</a>
+<!-- 👉 Si c'est le dernier stage, mets un lien vide ou supprime ce bouton -->
+<a href="detail-stage2.html" class="btn btn--outline" style="color:var(--clr-primary); border-color:var(--clr-primary);">Stage suivant →</a>
+</div>
+
+</main>
+
+
+<!-- ============================================================
+PIED DE PAGE
+============================================================ -->
+<footer class="footer">
+<div class="footer__container">
+<!-- 👉 Remplace "Prénom NOM" par ton nom -->
+<p class="footer__name">Prénom NOM</p>
+<p class="footer__mention">Portfolio réalisé dans le cadre du Bac Pro Métiers de l'Accueil · Promotion [Année]</p>
+<nav class="footer__nav">
+<a href="index.html#accueil">Accueil</a>
+<a href="index.html#cv">CV</a>
+<a href="index.html#stages">Stages</a>
+<a href="index.html#projets">Projets</a>
+</nav>
+</div>
+</footer>
+
+
+<!-- ============================================================
+SCRIPT JAVASCRIPT (menu mobile + navbar)
+============================================================ -->
+<script>
+// Menu hamburger
+const toggle = document.getElementById('navToggle');
+const menu = document.getElementById('navMenu');
+
+toggle.addEventListener('click', () => {
+menu.classList.toggle('is-open');
+toggle.classList.toggle('is-active');
+});
+
+document.querySelectorAll('.navbar__link').forEach(link => {
+link.addEventListener('click', () => {
+menu.classList.remove('is-open');
+toggle.classList.remove('is-active');
+});
+});
+</script>
+
+</body>
+</html>

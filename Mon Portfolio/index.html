@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================
+TITRE DE L'ONGLET DU NAVIGATEUR
+👉 Remplace "Portfolio – Santam SARKAR" par ton prénom et nom
+============================================================ -->
+<title>Portfolio – Santam SARKAR | Bac Pro Métiers de l'Accueil</title>
+
+<!-- Polices Google Fonts (chargées depuis Internet) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Lien vers la feuille de style CSS -->
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+BARRE DE NAVIGATION FIXE
+Elle reste visible en haut de la page pendant le défilement.
+============================================================ -->
+<header class="navbar" id="navbar">
+<div class="navbar__container">
+
+<!-- Logo / Nom affiché dans la barre de navigation -->
+<!-- 👉 Remplace "Santam SARKAR" par tes initiales ou ton nom court -->
+<a href="#accueil" class="navbar__logo">Santam SARKAR</a>
+
+<!-- Bouton hamburger pour mobile (visible uniquement sur téléphone) -->
+<button class="navbar__toggle" id="navToggle" aria-label="Ouvrir le menu">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<!-- Liens de navigation -->
+<!-- 👉 Les href="#..." correspondent aux id="" des sections ci-dessous -->
+<nav class="navbar__menu" id="navMenu">
+<a href="#accueil" class="navbar__link">Accueil</a>
+<a href="#cv" class="navbar__link">Mon CV</a>
+<a href="#stages" class="navbar__link">Mes Stages</a>
+<a href="#projets" class="navbar__link">Mes Projets</a>
+</nav>
+
+</div>
+</header>
+
+
+<!-- ============================================================
+SECTION 1 : ACCUEIL (HERO)
+La première chose que les visiteurs voient.
+============================================================ -->
+<section class="hero" id="accueil">
+<div class="hero__container">
+
+<!-- Sous-titre discret au-dessus du nom -->
+<!-- 👉 Tu peux modifier ou supprimer cette ligne -->
+<p class="hero__eyebrow">Portfolio · Bac Pro Métiers de l'Accueil</p>
+
+<!-- Ton prénom et ton nom en grand -->
+<!-- 👉 REMPLACE "Santam" et "SARKAR" par les tiens -->
+<h1 class="hero__name">
+<span class="hero__firstname">Santam</span>
+<span class="hero__lastname">SARKAR</span>
+</h1>
+
+<!-- Ligne décorative dorée (signature visuelle du portfolio) -->
+<div class="hero__divider"></div>
+
+<!-- Phrase d'accroche professionnelle -->
+<!-- 👉 Remplace ce texte par ta propre phrase d'accroche -->
+<p class="hero__tagline">
+Passionnée par la relation client et l'excellence du service,<br />
+je mets le savoir-faire au cœur de chaque interaction.
+</p>
+
+<!-- Boutons d'action -->
+<div class="hero__actions">
+<!-- Bouton qui emmène vers la section "Mes Stages" -->
+<a href="#stages" class="btn btn--primary">Découvrir mon parcours</a>
+<!-- Bouton qui emmène vers la section "Mon CV" -->
+<a href="#cv" class="btn btn--outline">Voir mon CV</a>
+</div>
+
+</div>
+
+<!-- Petit indicateur de défilement en bas du hero -->
+<a href="#cv" class="hero__scroll-hint" aria-label="Défiler vers le bas">
+<span class="hero__scroll-arrow"></span>
+</a>
+</section>
+
+
+<!-- ============================================================
+SECTION 2 : MON CV
+============================================================ -->
+<section class="section" id="cv">
+<div class="section__container">
+
+<!-- En-tête de section -->
+<div class="section__header">
+<span class="section__label">Parcours</span>
+<h2 class="section__title">Mon CV</h2>
+<p class="section__subtitle">Ma formation, mes expériences et mes compétences</p>
+</div>
+
+<!-- Grille principale du CV : 2 colonnes sur PC, 1 colonne sur mobile -->
+<div class="cv__grid">
+
+<!-- ---- COLONNE GAUCHE ---- -->
+<div class="cv__column">
+
+<!-- Bloc : Formation -->
+<div class="cv__block">
+<h3 class="cv__block-title">
+<span class="cv__block-icon">🎓</span> Formation
+</h3>
+
+<!-- 👉 Modifie chaque élément de timeline ci-dessous -->
+<div class="timeline">
+
+<div class="timeline__item">
+<!-- 👉 Remplace l'année -->
+<span class="timeline__date">2024 – 2027</span>
+<!-- 👉 Remplace le titre du diplôme -->
+<h4 class="timeline__title">Bac Pro Métiers de l'Accueil</h4>
+<!-- 👉 Remplace le nom de l'établissement et la ville -->
+<p class="timeline__subtitle">Lycée Arthur Rimbeaud · La courneuve</p>
+</div>
+
+<div class="timeline__item">
+<span class="timeline__date">2020 – 2023</span>
+<!-- 👉 Remplace par ton diplôme précédent (ex: Brevet des collèges) -->
+<h4 class="timeline__title">Brevet des Collèges</h4>
+<p class="timeline__subtitle">Collège Jacqueline De Romilly · Le Blanc-Mesnil</p>
+</div>
+
+<!-- 👉 Pour ajouter une ligne, copie-colle un bloc .timeline__item -->
+
+</div>
+</div>
+
+<!-- Bloc : Langues -->
+<div class="cv__block">
+<h3 class="cv__block-title">
+<span class="cv__block-icon">🌍</span> Langues
+</h3>
+
+<!-- 👉 Modifie chaque langue et son niveau -->
+<div class="skills-list">
+<div class="skill-item">
+<span class="skill-item__name">Français</span>
+<div class="skill-item__bar">
+<!-- level va de 1 à 5, modifie la largeur dans le CSS ou laisse tel quel -->
+<div class="skill-item__fill" style="width: 100%;"></div>
+</div>
+<span class="skill-item__level">Langue maternelle</span>
+</div>
+<div class="skill-item">
+<span class="skill-item__name">Anglais</span>
+<div class="skill-item__bar">
+<!-- 👉 Change la largeur (ex: 60% pour niveau intermédiaire) -->
+<div class="skill-item__fill" style="width: 70%;"></div>
+</div>
+<span class="skill-item__level">B1 – Intermédiaire</span>
+</div>
+<!-- 👉 Ajoute d'autres langues en copiant un bloc .skill-item -->
+</div>
+</div>
+
+</div><!-- fin colonne gauche -->
+
+<!-- ---- COLONNE DROITE ---- -->
+<div class="cv__column">
+
+<!-- Bloc : Expériences & Stages -->
+<div class="cv__block">
+<h3 class="cv__block-title">
+<span class="cv__block-icon">💼</span> Expériences
+</h3>
+<div class="timeline">
+
+<div class="timeline__item">
+<!-- 👉 Remplace par les dates de ton stage 1 -->
+<span class="timeline__date">Janv. 2024 – Févr. 2024</span>
+<!-- 👉 Remplace par le nom du poste / mission -->
+<h4 class="timeline__title">Hôtesse d'accueil</h4>
+<!-- 👉 Remplace par le nom de l'entreprise et la ville -->
+<p class="timeline__subtitle">Entreprise [Nom] · [Ville]</p>
+<!-- 👉 Décris brièvement tes missions (optionnel) -->
+<p class="timeline__desc">Accueil physique et téléphonique, gestion du courrier, orientation des visiteurs.</p>
+</div>
+
+<div class="timeline__item">
+<span class="timeline__date">Avr. 2024 – Mai 2024</span>
+<h4 class="timeline__title">Agent d'accueil événementiel</h4>
+<p class="timeline__subtitle">Structure [Nom] · [Ville]</p>
+<p class="timeline__desc">Accueil du public lors d'événements culturels, billetterie, gestion des flux.</p>
+</div>
+
+</div>
+</div>
+
+<!-- Bloc : Compétences professionnelles -->
+<div class="cv__block">
+<h3 class="cv__block-title">
+<span class="cv__block-icon">⭐</span> Compétences
+</h3>
+
+<!-- 👉 Remplace ou ajoute des badges de compétences -->
+<div class="badges">
+<span class="badge">Accueil physique</span>
+<span class="badge">Standard téléphonique</span>
+<span class="badge">Gestion du courrier</span>
+<span class="badge">Pack Office</span>
+<span class="badge">Logiciels de réservation</span>
+<span class="badge">Travail en équipe</span>
+<span class="badge">Rigueur</span>
+<span class="badge">Communication</span>
+<!-- 👉 Ajoute ou supprime des badges selon tes compétences -->
+</div>
+</div>
+
+</div><!-- fin colonne droite -->
+
+</div><!-- fin cv__grid -->
+
+<!-- ---- BOUTON TÉLÉCHARGER LE CV ---- -->
+<!-- 👉 Remplace "mon-cv.pdf" par le nom exact de ton fichier PDF
+Place ton fichier PDF dans le même dossier que index.html -->
+<div class="cv__download">
+<a href="mon-cv.pdf" download class="btn btn--primary">
+⬇ Télécharger mon CV (PDF)
+</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- ============================================================
+SECTION 3 : MES STAGES
+============================================================ -->
+<section class="section section--alt" id="stages">
+<div class="section__container">
+
+<div class="section__header">
+<span class="section__label">Terrain</span>
+<h2 class="section__title">Mes Stages</h2>
+<p class="section__subtitle">Les expériences professionnelles réalisées durant ma formation</p>
+</div>
+
+<!-- Grille de cartes de stages -->
+<div class="cards-grid">
+
+<!-- ============================================================
+CARTE STAGE 1
+👉 Modifie toutes les informations de ce stage
+============================================================ -->
+<article class="card">
+
+<!-- Image de couverture de la carte -->
+<!-- 👉 Remplace "images/stage1.jpg" par le chemin de ta photo
+Si tu n'as pas d'image, supprime la balise <div class="card__img"> entière -->
+<div class="card__img">
+<img src="images/stage1.jpg" alt="Photo du stage 1" loading="lazy" onerror="this.parentElement.style.display='none'" />
+</div>
+
+<div class="card__body">
+
+<!-- Étiquette de catégorie -->
+<!-- 👉 Remplace par le type de structure (Entreprise, Événementiel, Public...) -->
+<span class="card__tag">Accueil en structure Public</span>
+
+<!-- Titre du stage -->
+<!-- 👉 Remplace par le nom du poste ou de la mission -->
+<h3 class="card__title">Agent d'accueil</h3>
+
+<!-- Nom de la structure et dates -->
+<!-- 👉 Remplace par le nom réel et les dates -->
+<p class="card__meta">🏢 Conservatoire à Rayonnement Départemental · 26 Mai. –  26 Juin. 2026</p>
+
+<!-- Description courte du stage (2-3 lignes max) -->
+<!-- 👉 Remplace par ta propre description -->
+<p class="card__desc">
+Stage de 5 semaines axé sur la gestion de la relation usagers. Missions principales : accueil physique et téléphonique, orientation du public et suivi administratif sur Excel.
+
+</p>
+
+<!-- Bouton vers la page de détail du stage -->
+<!-- 👉 Remplace "detail-stage1.html" par le nom du fichier HTML de ce stage
+Duplique "detail-stage.html" et renomme-le en "detail-stage1.html" -->
+<a href="detail-stage1.html" class="btn btn--card">Voir les détails →</a>
+
+</div>
+</article>
+
+
+<!-- ============================================================
+CARTE STAGE 2
+👉 Modifie toutes les informations de ce stage
+============================================================ -->
+<article class="card">
+
+<div class="card__img">
+<img src="images/stage2.jpg" alt="Photo de mon stage à la Maison des Associations" loading="lazy" onerror="this.parentElement.style.display='none'" />
+</div>
+
+<div class="card__body">
+<span class="card__tag">Service Public & Secrétariat</span>
+<h3 class="card__title">Agent d'accueil et secrétariat</h3>
+<p class="card__meta">🏢 Maison des Associations · Le Blanc-Mesnil</p>
+<p class="card__desc">
+Accueil des usagers sur place et prise en charge du standard téléphonique. 
+Orientation des responsables associatifs, prise de rendez-vous et mise à jour du planning des salles.
+</p>
+<a href="detail-stage2.html" class="btn btn--card">Voir les détails →</a>
+</div>
+</article>
+
+
+<!-- ============================================================
+CARTE STAGE 3 (OPTIONNELLE)
+👉 Si tu n'as que 2 stages, supprime toute cette section <article>
+Si tu en as un 3e, complète les informations ci-dessous
+============================================================ -->
+<article class="card">
+
+<div class="card__img">
+<img src="images/stage3.jpg" alt="Photo du stage 3" loading="lazy" onerror="this.parentElement.style.display='none'" />
+</div>
+
+<div class="card__body">
+<span class="card__tag">Service public</span>
+<h3 class="card__title">Agente d'accueil en médiathèque</h3>
+<p class="card__meta">📚 Médiathèque [Nom] · [Mois] – [Mois] 2025</p>
+<p class="card__desc">
+Accueil et renseignement du public dans une médiathèque municipale.
+Animation d'ateliers et gestion des inscriptions, prêts et retours.
+</p>
+<a href="detail-stage3.html" class="btn btn--card">Voir les détails →</a>
+</div>
+</article>
+
+</div><!-- fin cards-grid -->
+
+</div>
+</section>
+
+
+<!-- ============================================================
+SECTION 4 : MES PROJETS
+============================================================ -->
+<section class="section" id="projets">
+<div class="section__container">
+
+<div class="section__header">
+<span class="section__label">Réalisations</span>
+<h2 class="section__title">Mes Projets</h2>
+<p class="section__subtitle">Les projets scolaires et professionnels réalisés durant ma formation</p>
+</div>
+
+<!-- Liste des projets -->
+<div class="projects-list">
+
+<!-- ============================================================
+PROJET 1
+👉 Modifie le titre, la description et les informations
+============================================================ -->
+<div class="project-item">
+<div class="project-item__header">
+
+<h3 class="project-item__title">Visite de la Paris Fashion Week </h3>
+
+<span class="project-item__date">Octobre 2025</span>
+</div>
+
+<p class="project-item__desc">
+Dans un cadre pédagogique avec ma classe, j'ai assisté au défilé international <strong>Rockstar Fashion Show 2025</strong> à l'hôtel Meliá (La Défense). Ce projet m'a permis d'analyser concrètement la logistique d'un événement d'envergure, la gestion des flux de public (400 invités VIP, médias) ainsi que la coordination des équipes en coulisses.
+</p>
+
+<div class="project-item__tags">
+<span class="badge badge--small">Gestion des flux</span>
+<span class="badge badge--small">Événementiel</span>
+<span class="badge badge--small">Analyse logistique</span>
+</div>
+
+<a href="documents/projet-fashion-week.pdf" download class="btn btn--text">📎 Dossier d'observation (PDF)</a>
+</div>
+
+
+<!-- ============================================================
+PROJET 2
+============================================================ -->
+<div class="project-item">
+<div class="project-item__header">
+<!-- 👉 Remplace par le titre de ton 2e projet -->
+<h3 class="project-item__title">Création d'un guide d'accueil visiteur</h3>
+<span class="project-item__date">Octobre 2024</span>
+</div>
+<p class="project-item__desc">
+Réalisation d'un guide complet à destination des nouveaux visiteurs d'une structure d'accueil :
+cartographie des espaces, procédures d'accueil, FAQ, charte de l'accueil.
+Document conçu sur Word et mis en page sur Publisher.
+</p>
+<div class="project-item__tags">
+<span class="badge badge--small">Rédaction</span>
+<span class="badge badge--small">Mise en page</span>
+<span class="badge badge--small">Word / Publisher</span>
+</div>
+<a href="documents/projet2-guide.pdf" download class="btn btn--text">📎 Voir le guide</a>
+</div>
+
+
+<!-- ============================================================
+PROJET 3 (OPTIONNEL)
+👉 Supprime ce bloc si tu n'as pas de 3e projet
+============================================================ -->
+<div class="project-item">
+<div class="project-item__header">
+<h3 class="project-item__title">[Titre de ton 3e projet]</h3>
+<span class="project-item__date">[Date]</span>
+</div>
+<p class="project-item__desc">
+[Décris ici ton projet : contexte, ta mission, les outils utilisés, le résultat obtenu.]
+</p>
+<div class="project-item__tags">
+<span class="badge badge--small">[Tag 1]</span>
+<span class="badge badge--small">[Tag 2]</span>
+</div>
+</div>
+
+</div><!-- fin projects-list -->
+
+</div>
+</section>
+
+
+<!-- ============================================================
+PIED DE PAGE (FOOTER)
+============================================================ -->
+<footer class="footer">
+<div class="footer__container">
+
+<!-- 👉 Remplace "Santam SARKAR" par ton nom -->
+<p class="footer__name">Santam SARKAR</p>
+<p class="footer__mention">Portfolio réalisé dans le cadre du Bac Pro Métiers de l'Accueil · Promotion [Année]</p>
+
+<!-- Liens rapides en bas de page -->
+<nav class="footer__nav">
+<a href="#accueil">Accueil</a>
+<a href="#cv">CV</a>
+<a href="#stages">Stages</a>
+<a href="#projets">Projets</a>
+</nav>
+
+</div>
+</footer>
+
+
+<!-- ============================================================
+SCRIPT JAVASCRIPT (fonctionnalités interactives)
+Gère : menu mobile, scroll fluide, navbar colorée au scroll
+============================================================ -->
+<script>
+// --- Menu hamburger (mobile) ---
+const toggle = document.getElementById('navToggle');
+const menu = document.getElementById('navMenu');
+
+toggle.addEventListener('click', () => {
+menu.classList.toggle('is-open');
+toggle.classList.toggle('is-active');
+});
+
+// Ferme le menu quand on clique sur un lien
+document.querySelectorAll('.navbar__link').forEach(link => {
+link.addEventListener('click', () => {
+menu.classList.remove('is-open');
+toggle.classList.remove('is-active');
+});
+});
+
+// --- Navbar : fond visible après défilement ---
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 50) {
+navbar.classList.add('is-scrolled');
+} else {
+navbar.classList.remove('is-scrolled');
+}
+});
+
+// --- Lien actif dans la navbar au scroll ---
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.navbar__link');
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+navLinks.forEach(l => l.classList.remove('is-active'));
+const active = document.querySelector(`.navbar__link[href="#${entry.target.id}"]`);
+if (active) active.classList.add('is-active');
+}
+});
+}, { threshold: 0.4 });
+
+sections.forEach(s => observer.observe(s));
